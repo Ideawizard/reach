@@ -5,3 +5,4 @@ coolname
 beautifulsoup4
 websocket-client
 flask_login
+tqdm

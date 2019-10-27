@@ -462,14 +462,26 @@ def profiles_index():
                 treatments += 1
         except:
             pass
+    if len(profiles) == 0:
 
-    return render_template('profiles/index.html',
+        return render_template('profiles/index.html',
+
+            profiles=profiles,
+            profiles_count=0,
+            treatments=0,
+            treatment_rate=0,
+            assessments=0)
+    else:
+
+        return render_template('profiles/index.html',
+
             profiles=profiles,
             profiles_count=len(profiles),
             treatments=treatments,
             treatment_rate=round(treatments/len(profiles)*100,1),
             assessments=assessments,
             assessment_rate=round(assessments/len(profiles)*100,1))
+
 
 
 @app.route('/profiles/<profile_id>', methods=['GET'])
